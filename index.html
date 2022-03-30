@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>miniproject</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" @logon="login"></script>
+  <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+  <div id="app">
+    <clock-component></clock-component>
+    <login-component @logon="login"></login-component>
+    <input-component v-if="loged" @memo="addMemo" @todo="addTodo"></input-component>
+    <ul>
+      <todo-component v-if="loged" @del="delTodo" v-for="(d, index) in todolist" :index="index" :key="index">{{ d }}</todo-component>
+    </ul>
+    <memo-component :list="memolist" v-if="loged"></memo-component>
+  </div>
+
+  <script src="./js/clock.js"></script>
+  <script src="./js/login.js"></script>
+  <script src="./js/input.js"></script>
+  <script src="./js/memo.js"></script>
+  <script src="./js/todo.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
